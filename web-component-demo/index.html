@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web component demo</title>
+  </head>
+
+  <body>
+    <div id="wrapper">
+    </div>
+    <script type="text/javascript" src="./web-component.js"></script>
+    <script type="text/javascript">
+      person = {
+        name: 'John Doe',
+        age: 30,
+        address: '26th Main, Kormanagala, Bagalore, India'
+      };
+
+      const myElement = document.createElement('my-comp');
+      myElement.addEventListener('loadComp', (event) => {
+        console.log("Component loaded successfully!", event);
+      });
+      myElement.setAttribute('person', JSON.stringify(person));
+
+
+      const wrapper = document.getElementById("wrapper");
+      wrapper.appendChild(myElement);
+    </script>
+  </body>
+
+</html>
